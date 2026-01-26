@@ -1,18 +1,49 @@
 h1 { 
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    background-color: rgb(9, 110, 128);
+    padding: 10px;
+    text-align: center;
+}
+h3 { 
+    color: rgb(0, 0, 0);
     background-color: rgb(9, 110, 128);
     padding: 10px;
 }
 body {
     font-family: Arial, sans-serif;
     transition: 0.5s;
+    margin: 0;
 }
 
 .dark-mode {
-    background-color: #1a1a1a;
-    color: white; 
+    background-color: #111010;
+    color: rgb(252, 252, 252); 
 }
 
 .dark-mode h1, .dark-mode h3 {
-    color: #e74c3c;
+    color: #000000;
+}
+.label {
+    display: inline-block;
+    width: 102px;
+    color: #3498db;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+.about {
+    text-align: center;
+}
+.box-keren {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
