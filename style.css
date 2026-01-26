@@ -1,12 +1,12 @@
 h1 { 
     color: rgb(0, 0, 0);
-    background-color: rgb(9, 110, 128);
+    background-color: rgb(21, 62, 70);
     padding: 10px;
     text-align: center;
 }
 h3 { 
     color: rgb(0, 0, 0);
-    background-color: rgb(9, 110, 128);
+    background-color: rgb(21, 62, 70);
     padding: 10px;
 }
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 .dark-mode h1, .dark-mode h3 {
-    color: #000000;
+    color: #ffffff;
 }
 .label {
     display: inline-block;
@@ -30,7 +30,6 @@ body {
 }
 
 ul {
-    list-style: none;
     padding: 0;
 }
 .about {
@@ -46,4 +45,42 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+ul li a {
+    text-decoration: none; 
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+ul li a:hover {
+    color: #309ee7;
+    text-shadow: 0 0 10px #3498db;
+}
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #ebebeb;
+    margin: 20px auto ;
+}
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    border: 1px solid #213b4d;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.btn-back:hover {
+    background-color: #1c4c5a;
+    color: white;
+}
+.box-keren p {
+    text-align: justify;
+    line-height: 1.6;
+}
+img {
+    display: block;
 }
