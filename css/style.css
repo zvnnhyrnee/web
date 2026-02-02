@@ -220,9 +220,38 @@ footer {
     box-shadow: 0 20px 60px rgba(200, 0, 0, 0.4);
 }
 
-/* Gradient h1 lebih red untuk Sukuna (override global kalau perlu) */
+/* Gradient h1 lebih red untuk Sukuna */
 .page-sukuna h1 {
     background: linear-gradient(90deg, #ff4d4d, #b30000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* yuji itadori
+
+/* Itadori page subtle bg - pink energy */
+.page-itadori {
+  background: #0f0a0e; /* dark base dengan hint pink */
+}
+
+.page-itadori::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255, 105, 180, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Hero image pink glow shadow */
+.page-itadori .hero-img img {
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.35);
+}
+
+/* Gradient h1 pink-orange energy */
+.page-itadori h1 {
+    background: linear-gradient(90deg, #ff69b4, #ff4500);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
