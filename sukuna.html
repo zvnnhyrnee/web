@@ -10,6 +10,17 @@
     <title>Ryomen Sukuna — Venweb</title>
 </head>
 <body class="page-sukuna">
+<!-- Preloader JJK Cursed Flame - Tumpuk Layer -->
+<div id="preloader">
+    <div class="flame-container">
+    <!-- Layer abu-abu (base) -->
+    <img src="images/flame.png" alt="Cursed Flame Gray" class="flame base">
+    <!-- Layer warna (reveal dari bawah) -->
+    <img src="images/flame.png" alt="Cursed Flame Color" class="flame reveal">
+    </div>
+    <p class="loading-text">Cursed Energy Awakening...</p>
+</div>
+
     <div class="container">
     <a href="index.html" class="back">← Beranda</a>
 
@@ -34,5 +45,26 @@
         </div>
     </main>
     </div>
+    <script>
+    window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+        preloader.classList.add('hidden');
+        setTimeout(() => preloader.remove(), 1800);
+        }, 1500);
+    }
+    });
+
+  // Show preloader pas klik card
+    document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+        preloader.classList.remove('hidden');
+        }
+    });
+    });
+</script>
 </body>
 </html>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <link rel="preload" href="images/gojo2.jpg" as="image">
+<link rel="preload" href="images/sukuna1.png" as="image">
+<link rel="preload" href="images/yuji.jpg" as="image">
+<link rel="preload" href="images/megumi.jpg" as="image">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Koleksi Jujutsu Kaisen - Venweb"/>
@@ -14,27 +18,54 @@
     <div class="container">
     <header>
         <h1>Venweb</h1>
+        <div class="theme-toggle">
+    <button id="theme-btn" aria-label="Toggle dark/light mode" class="toggle-btn">
+    <svg class="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <svg class="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    </button>
+</div>
         <p class="tagline">Koleksi digital Jujutsu Kaisen</p>
     </header>
 
-    <section class="section-characters">
+<nav class="main-nav">
+    <a href="#characters">Karakter Favorit</a>
+    <a href="#techniques">Teknik Kutukan</a>
+    <a href="#contact">Kontak</a>
+</nav>
+
+    <section id="characters" class="section-characters">
         <h2>Karakter Favorit</h2>
         <div class="grid">
-    <a href="gojo.html" class="card">
-        <div class="card-img" style="background-image: url('images/gojo2.jpg');"></div>
-        <span>Gojo Satoru</span>
+    <a href="gojo.html" class="card card-gojo">
+    <div class="card-img" style="background-image: url('images/gojo2.jpg');"></div>
+    <span>Gojo Satoru</span>
     </a>
-    <a href="sukuna.html" class="card">
-        <div class="card-img" style="background-image: url('images/sukuna-thumb.webp');"></div>
-        <span>Sukuna</span>
+
+    <a href="sukuna.html" class="card card-sukuna">
+    <div class="card-img" style="background-image: url('images/sukuna1.png');"></div>
+    <span>Sukuna</span>
     </a>
-    <a href="itadori.html" class="card">
-        <div class="card-img" style="background-image: url('images/itadori-thumb.webp');"></div>
-        <span>Itadori Yuji</span>
+
+    <a href="yuji.html" class="card card-itadori">
+    <div class="card-img" style="background-image: url('images/yuji.jpg');"></div>
+    <span>Itadori Yuji</span>
     </a>
-    <a href="megumi.html" class="card">
-        <div class="card-img" style="background-image: url('images/megumi-thumb.webp');"></div>
-        <span>Megumi Fushiguro</span>
+
+    <a href="megumi.html" class="card card-megumi">
+    <div class="card-img" style="background-image: url('images/megumi.jpg');"></div>
+    <span>Megumi Fushiguro</span>
     </a>
 </div>
     </section>
@@ -61,5 +92,96 @@
     <p>© 2026 Ziven — First web project</p>
     </footer>
 </div>
+<script>
+    const themeBtn = document.getElementById('theme-btn');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+    }
+
+    themeBtn.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+
+    if (body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+    });
+</script>
+
+<script>
+  // Fade-in Cards on Scroll - Intersection Observer (super ringan)
+    document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // sekali trigger aja, biar ga ulang
+        }
+        });
+    }, {
+      threshold: 0.1, // mulai animasi pas 10% card keliatan
+      rootMargin: '0px 0px -50px 0px' // mulai sedikit sebelum masuk viewport
+    });
+
+    cards.forEach(card => observer.observe(card));
+    });
+</script>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        }
+    });
+    });
+</script>
+<script>
+  // Smooth scroll ke section dengan #id
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
+        if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        }
+    });
+    });
+</script>
+<script>
+
+    document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+        preloader.classList.remove('hidden');
+        }
+    });
+    });
+
+
+    window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('hidden');
+        setTimeout(() => preloader.remove(), 600);
+    }
+    });
+</script>
 </body>
 </html>
