@@ -199,6 +199,36 @@ footer {
 }
 
 
+/*sukuna *\
+
+/* Sukuna page subtle bg */
+.page-sukuna {
+  background: #0f0a0a; /* super dark red-black base */
+}
+
+.page-sukuna::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(200, 0, 0, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Optional: tweak hero image border untuk red accent */
+.page-sukuna .hero-img img {
+    box-shadow: 0 20px 60px rgba(200, 0, 0, 0.4);
+}
+
+/* Gradient h1 lebih red untuk Sukuna (override global kalau perlu) */
+.page-sukuna h1 {
+    background: linear-gradient(90deg, #ff4d4d, #b30000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
 
 
 
